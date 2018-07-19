@@ -29,8 +29,10 @@ class ListItems(Resource):
     def get(self):
         return {'allItems': data.getAllItems(),
                 'itemsById': list(data.getAllItems().keys()),
-                'itemsByRating': data.sort_by(lambda item: item['thumbsUpCount'] - item['thumbsDownCount']),
-                'itemsByPrice': data.sort_by(lambda item: item['price']),
+                'itemsByRatingAscending': data.sort_by(lambda item: item['thumbsUpCount'] - item['thumbsDownCount'], descending=False),
+                'itemsByRatingDescending': data.sort_by(lambda item: item['thumbsUpCount'] - item['thumbsDownCount'], descending=True),
+                'itemsByPriceAscending': data.sort_by(lambda item: item['price'], descending=False),
+                'itemsByPriceDescending': data.sort_by(lambda item: item['price'], descending=True),
                 'itemsByVegetarian': data.filter_by('vegetarian'),
                 'itemsBySeating': data.filter_by('seating')}
 
