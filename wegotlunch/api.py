@@ -8,8 +8,7 @@ from . import settings
 from . import data
 
 from flask import Flask
-from flask_restful import Resource, Api
-import pickle
+from flask_restful import Resource, Api, request
 
 ##############################################################
 # ---------------------------------------------------------- #
@@ -23,15 +22,14 @@ api = Api(app)
 class ListItems(Resource):
 
     def get(self):
-
-        with open(settings.DATA_LOCATION, 'rb') as f:
-            return pickle.load(f)
+        return data.getAllItems()
 
 class AddItem(Resource):
 
-    def get(self, **kwargs):
+    def get(self):
+        args = request.args
 
-        if data.addItem(**kwargs):
+        if data.addItem(**args):
             return {'Status': 'Item added'}
 
         else:
