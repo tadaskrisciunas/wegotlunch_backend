@@ -1,2 +1,10 @@
-name of restaurant,name of item,address,picture,price,seating,rating
-Leon,,,,,,
+placeName,address,seating,itemName,picture,price,vegetarian,thumbsUpCount,thumbsDownCount
+Leon,"6 More London Riverside, London SE1 2DA",yes,chicken satay hot box,chicken_satay.jpg,£6.95,No,,
+Leon,"6 More London Riverside, London SE1 2DA",yes,chicken chorizo hot box,chicken_chorizo.jpg,£6.95,No,,
+Honest Burger,"5-7 Southwark St, London, SE11RQ",yes,Honest,Honest.jpg,£10.95,No,,
+Honest Burger,"5-7 Southwark St, London, SE11RQ",yes,Fritter,Fritter.jpg,£7.95,Yes,,
+Nandos,"225-227 Clink Street, London, SE19DG",yes,Butterfly Chciken,butterfly_chicken.jpg,£7.95,No,,
+Itsu,"Unit 4, The Shard Retail Arcade, London, SE19SG",yes,Humble Warrior Bento,Humble_Warrior_Bento.jpg,£7.19,Yes,,
+Velo,"104 Tooley Street, London, SE12TH",yes,Rice Velo,Rice_Velo.jpg,£7.80,No,,
+Velo,"104 Tooley Street, London, SE12TH",yes,Pho Velo,Pho_Velo.jpg,£7.80,No,,
+,,,Risotto ai Funghi,,,,,
