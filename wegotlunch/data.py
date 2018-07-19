@@ -126,6 +126,11 @@ def filter_by(field_to_filter):
 
 
 def sort_by_rating(descending=True):
-    all_items = list(getAllItems().values())
-    return sorted(all_items, key=lambda k: k['thumbsUpCount'] - k['thumbsDownCount'], reverse=descending)
+    all_items = []
+    for item_id, items in getAllItems().items():
+        items['item_id'] = item_id
+        all_items.append(items)
+    s = sorted(all_items, key=lambda k: k['thumbsUpCount'] - k['thumbsDownCount'], reverse=descending)
+    ids_by_rating = [item['item_id'] for item in s]
+    return ids_by_rating
 
