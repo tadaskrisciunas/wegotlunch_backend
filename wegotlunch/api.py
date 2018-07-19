@@ -19,10 +19,17 @@ from flask_restful import Resource, Api, request
 app = Flask(__name__)
 api = Api(app)
 
+def test():
+    data.filter_by("vegetarian")
+
 class ListItems(Resource):
 
     def get(self):
-        return data.getAllItems()
+        return {'allItems': data.getAllItems(),
+                'itemsById': list(data.getAllItems().keys()),
+                'itemsByRating': list(data.getAllItems().keys()),  # TODO
+                'itemsByVegetarian': data.filter_by('vegetarian'),
+                'itemsBySeating': data.filter_by('seating')}
 
 class AddItem(Resource):
 
