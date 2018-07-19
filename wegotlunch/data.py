@@ -113,7 +113,7 @@ def filter_by(field_to_filter):
     filtered_ids = []
 
     for item_id in all_items:
-        if all_items[item_id][field_to_filter]:
+        if all_items[item_id][field_to_filter].upper() == "YES":
             filtered_ids.append(item_id)
 
     return filtered_ids
