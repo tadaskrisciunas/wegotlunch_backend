@@ -81,7 +81,11 @@ def addItem(**kwargs):
        'itemName' in keys and \
        'price' in keys and \
        'thumbsUpCount' in keys and \
-       'thumbsDownCount' in keys:
+       'thumbsDownCount' in keys and \
+       'picture' in keys and \
+       'seating' in keys and \
+       'address' in keys and \
+       'vegetarian' in keys:
 
         with open(settings.DATA_LOCATION, 'rb') as f:
             items = pickle.load(f)
