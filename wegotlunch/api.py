@@ -8,6 +8,7 @@ from . import settings
 from . import data
 
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Resource, Api, request
 
 ##############################################################
@@ -18,6 +19,7 @@ from flask_restful import Resource, Api, request
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 def test():
     data.filter_by("vegetarian")
@@ -27,7 +29,7 @@ class ListItems(Resource):
     def get(self):
         return {'allItems': data.getAllItems(),
                 'itemsById': list(data.getAllItems().keys()),
-                'itemsByRating': list(data.getAllItems().keys()),  # TODO
+                'itemsByRating': data.sort_by_rating(),
                 'itemsByVegetarian': data.filter_by('vegetarian'),
                 'itemsBySeating': data.filter_by('seating')}
 
