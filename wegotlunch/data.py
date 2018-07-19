@@ -35,24 +35,53 @@ def createExampleItems():
 
     _ = input('Are you sure? This will delete existing items.')
 
-    with open(settings.DATA_LOCATION, 'wb') as f:
-        pickle.dump([FoodItem(placeName='Absolutely Starving',
-                              itemName='All items in store',
-                              price='£1000',
-                              thumbsUpCount=1000,
-                              thumbsDownCount=0),
-                     FoodItem(placeName='Zopa Breakfast in Kitchen',
-                              itemName='All items in store',
-                              price='£0',
-                              thumbsUpCount=1,
-                              thumbsDownCount=0)
-                     ],
+    with open('../' + settings.DATA_LOCATION, 'wb') as f:
+        pickle.dump([{
+                        'placeName': 'Absolutely Starving',
+                        'itemName': 'All items in store',
+                        'price': 1000,
+                        'thumbsUpCount': 1000,
+                        'thumbsDownCount': 0
+                     },
+                     {
+                        'placeName': 'Zopa Breakfast',
+                        'itemName': 'All items in store',
+                        'price': 0,
+                        'thumbsUpCount': 1000,
+                        'thumbsDownCount': 0
+                     }],
                     f)
 
-def addItem(item):
+def addItem(**kwargs):
     """
     Adds an item to datastore.
 
-    :param item: a `FoodItem` instance.
-    :return: None
+    :param kwargs: a list of item attributes. Must contain
+                    * placeName
+                    * itemName
+                    * price
+                    * thumbsDownCount
+                    * thumbsUpCount
+    :return: True on success, False o/w
     """
+
+    keys = kwargs.keys()
+
+    if 'placeName' in keys and \
+       'itemName' in keys and \
+       'price' in keys and \
+       'thumbsUpCount' in keys and \
+       'thumbsDownCount' in keys:
+
+        with open(settings.DATA_LOCATION, 'rb') as f:
+            items = pickle.load(f)
+
+        items.append(kwargs)
+
+        with open(settings.DATA_LOCATION, 'wb') as f:
+            pickle.dump(items, f)
+
+        return True
+
+    else:
+        return False
