@@ -61,6 +61,17 @@ def getAllItems():
     with open(settings.DATA_LOCATION, 'rb') as f:
         return pickle.load(f)
 
+def overwriteAllItems(items: dict):
+    """
+    Overwrites all items.
+
+    :param items: the new item dictionary to save.
+    :return:
+    """
+
+    with open(settings.DATA_LOCATION, 'wb') as f:
+        pickle.dump(items, f)
+
 def addItem(**kwargs):
     """
     Adds an item to datastore.
@@ -76,6 +87,7 @@ def addItem(**kwargs):
 
     keys = kwargs.keys()
 
+    # First, validate item
     if 'placeName' in keys and \
        'itemName' in keys and \
        'price' in keys and \
@@ -86,14 +98,30 @@ def addItem(**kwargs):
        'address' in keys and \
        'vegetarian' in keys:
 
-        with open(settings.DATA_LOCATION, 'rb') as f:
-            items = pickle.load(f)
-
+        items = getAllItems()
         items.update({len(items) + 1: kwargs})
+        overwriteAllItems(items)
 
-        with open(settings.DATA_LOCATION, 'wb') as f:
-            pickle.dump(items, f)
+        return True
 
+    else:
+        return False
+
+def increaseItemThumbs(itemId: int,
+                       thumbsType: str):
+    """
+    Increases item's thumbs count by one.
+
+    :param itemId: the id of the item.
+    :param thumbsType: either `thumbsUpCount` or `thumbsDownCount`
+    :return: True on success, False on failure
+    """
+
+    items = getAllItems()
+
+    if itemId in items.keys():
+        items[itemId][thumbsType] += 1
+        overwriteAllItems(items)
         return True
 
     else:
