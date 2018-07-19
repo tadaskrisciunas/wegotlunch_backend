@@ -1,9 +1,9 @@
 placeName,address,seating,itemName,picture,price,vegetarian,thumbsUpCount,thumbsDownCount
-Leon,"6 More London Riverside, London SE1 2DA",Yes,chicken satay hot box,chicken_satay.jpg,6.95,No,100,5
-Leon,"6 More London Riverside, London SE1 2DA",Yes,chicken chorizo hot box,chicken_chorizo.jpg,6.95,No,160,43
-Honest Burger,"5-7 Southwark St, London, SE11RQ",Yes,Honest,Honest.jpg,10.95,No,40,5
-Honest Burger,"5-7 Southwark St, London, SE11RQ",Yes,Fritter,Fritter.jpg,7.95,Yes,60,45
-Nandos,"225-227 Clink Street, London, SE19DG",Yes,Butterfly Chciken,butterfly_chicken.jpg,7.95,No,,
+Leon,"6 More London Riverside, London SE1 2DA",Yes,chicken satay hot box,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/chicken_satay.jpg,6.95,No,100,5
+Leon,"6 More London Riverside, London SE1 2DA",Yes,chicken chorizo hot box,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/chicken_chorizo.jpg,6.95,No,160,43
+Honest Burger,"5-7 Southwark St, London, SE11RQ",Yes,Honest,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/Honest.jpg,10.95,No,40,5
+Honest Burger,"5-7 Southwark St, London, SE11RQ",Yes,Fritter,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/Fritter.jpg,7.95,Yes,60,45
+Nandos,"225-227 Clink Street, London, SE19DG",Yes,Butterfly Chciken,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/butterfly_chicken.jpg,7.95,No,,
 Itsu,"Unit 4, The Shard Retail Arcade, London, SE19SG",Yes,Humble Warrior Bento,Humble_Warrior_Bento.jpg,7.19,Yes,,
-Velo,"104 Tooley Street, London, SE12TH",Yes,Rice Velo,Rice_Velo.jpg,7.8,No,,
-Velo,"104 Tooley Street, London, SE12TH",Yes,Pho Velo,Pho_Velo.jpg,7.8,No,,
+Velo,"104 Tooley Street, London, SE12TH",Yes,Rice Velo,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/Rice_Velo.jpg,7.8,No,,
+Velo,"104 Tooley Street, London, SE12TH",Yes,Pho Velo,https://raw.githubusercontent.com/tadaskrisciunas/wegotlunch_backend/master/data/pictures/Pho_Velo.jpg,7.8,No,,
