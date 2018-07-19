@@ -109,6 +109,12 @@ def increaseItemThumbs(itemId: int,
         return False
 
 def filter_by(field_to_filter):
+    """
+    Filter all of the items based on an input field
+
+    :param field_to_filter: The field to filter on. E.g. vegetarian
+    :return: List of ids that are remaining. E.g. if field_to_filter is vegetarian, this will be a list of vegetarian item ids
+    """
     all_items = getAllItems()
     filtered_ids = []
 
