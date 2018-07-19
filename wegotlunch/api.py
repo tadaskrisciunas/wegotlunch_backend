@@ -38,10 +38,24 @@ class AddItem(Resource):
 class ButtonUpdate(Resource):
 
     def get(self):
-        args = request.args
+        args = {arg: val for arg, val in request.args.items()}
 
+        print(args)
+
+        if args['thumbs'] == 'true':
+            success = data.increaseItemThumbs(int(args['id']), 'thumbsUpCount')
+
+        else:
+            success = data.increaseItemThumbs(int(args['id']), 'thumbsDownCount')
+
+        if success:
+            return {'Status': 'Item updated'}
+
+        else:
+            return {'Status': 'Item not updated'}
 
 
 # Add API resources. Define endpoints.
 api.add_resource(ListItems, '/listItems')
 api.add_resource(AddItem, '/addItem')
+api.add_resource(ButtonUpdate, '/updateThumbs')
