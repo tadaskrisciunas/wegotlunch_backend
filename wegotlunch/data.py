@@ -36,21 +36,22 @@ def createExampleItems():
     _ = input('Are you sure? This will delete existing items.')
 
     with open(settings.DATA_LOCATION, 'wb') as f:
-        pickle.dump([{
-                        'placeName': 'Absolutely Starving',
-                        'itemName': 'All items in store',
-                        'price': 1000,
-                        'thumbsUpCount': 1000,
-                        'thumbsDownCount': 0
-                     },
-                     {
-                        'placeName': 'Zopa Breakfast',
-                        'itemName': 'All items in store',
-                        'price': 0,
-                        'thumbsUpCount': 1000,
-                        'thumbsDownCount': 0
-                     }],
-                    f)
+        pickle.dump({
+                       1: {
+                            'placeName': 'Absolutely Starving',
+                            'itemName': 'All items in store',
+                            'price': 1000,
+                            'thumbsUpCount': 1000,
+                            'thumbsDownCount': 0
+                          },
+                       2: {
+                            'placeName': 'Zopa Breakfast',
+                            'itemName': 'All items in store',
+                            'price': 0,
+                            'thumbsUpCount': 1000,
+                            'thumbsDownCount': 0
+                          }
+                    }, f)
 
 def getAllItems():
     """
