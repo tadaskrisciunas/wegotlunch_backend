@@ -27,13 +27,20 @@ class ListItems(Resource):
 class AddItem(Resource):
 
     def get(self):
-        args = request.args
+        args = {arg: val for arg, val in request.args.items()}
 
         if data.addItem(**args):
             return {'Status': 'Item added'}
 
         else:
             return {'Status': 'Item not added'}
+
+class ButtonUpdate(Resource):
+
+    def get(self):
+        args = request.args
+
+
 
 # Add API resources. Define endpoints.
 api.add_resource(ListItems, '/listItems')
