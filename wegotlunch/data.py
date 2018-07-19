@@ -16,15 +16,6 @@ import pickle
 ##############################################################
 
 
-FoodItem = namedtuple('FoodItem', ['placeName',
-                                   'itemName',
-                                   'price',
-                                   'thumbsUpCount',
-                                   'thumbsDownCount'])
-"""
-The definition of a food item.
-"""
-
 def createExampleItems():
     """
     Creates a list of example food items and stores them at the
@@ -42,14 +33,22 @@ def createExampleItems():
                             'itemName': 'All items in store',
                             'price': 1000,
                             'thumbsUpCount': 1000,
-                            'thumbsDownCount': 0
+                            'thumbsDownCount': 0,
+                            'picture': 'none',
+                            'seating': 1,
+                            'address': 'Good address',
+                            'vegetarian': True
                           },
                        2: {
                             'placeName': 'Zopa Breakfast',
                             'itemName': 'All items in store',
                             'price': 0,
                             'thumbsUpCount': 1000,
-                            'thumbsDownCount': 0
+                            'thumbsDownCount': 0,
+                            'picture': 'none',
+                            'seating': 1,
+                            'address': 'Good address',
+                            'vegetarian': True
                           }
                     }, f)
 
@@ -90,7 +89,7 @@ def addItem(**kwargs):
         with open(settings.DATA_LOCATION, 'rb') as f:
             items = pickle.load(f)
 
-        items.append(kwargs)
+        items.update({len(items) + 1: kwargs})
 
         with open(settings.DATA_LOCATION, 'wb') as f:
             pickle.dump(items, f)
