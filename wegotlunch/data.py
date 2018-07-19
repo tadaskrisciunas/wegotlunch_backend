@@ -52,6 +52,15 @@ def createExampleItems():
                      }],
                     f)
 
+def getAllItems():
+    """
+    Gets all items.
+    :return:
+    """
+
+    with open(settings.DATA_LOCATION, 'rb') as f:
+        return pickle.load(f)
+
 def addItem(**kwargs):
     """
     Adds an item to datastore.

@@ -23,9 +23,7 @@ api = Api(app)
 class ListItems(Resource):
 
     def get(self):
-
-        with open(settings.DATA_LOCATION, 'rb') as f:
-            return pickle.load(f)
+        return data.getAllItems()
 
 class AddItem(Resource):
 
