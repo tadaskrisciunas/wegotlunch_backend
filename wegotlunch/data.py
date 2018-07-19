@@ -35,7 +35,7 @@ def createExampleItems():
 
     _ = input('Are you sure? This will delete existing items.')
 
-    with open('../' + settings.DATA_LOCATION, 'wb') as f:
+    with open(settings.DATA_LOCATION, 'wb') as f:
         pickle.dump([{
                         'placeName': 'Absolutely Starving',
                         'itemName': 'All items in store',
