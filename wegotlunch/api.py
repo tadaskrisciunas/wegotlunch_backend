@@ -40,8 +40,6 @@ class ButtonUpdate(Resource):
     def get(self):
         args = {arg: val for arg, val in request.args.items()}
 
-        print(args)
-
         if args['thumbs'] == 'true':
             success = data.increaseItemThumbs(int(args['id']), 'thumbsUpCount')
 

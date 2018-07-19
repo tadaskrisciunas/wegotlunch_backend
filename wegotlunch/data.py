@@ -6,8 +6,8 @@ Here we define the data format.
 
 from . import settings
 
-from collections import namedtuple
 import pickle
+import pandas as pd
 
 ##############################################################
 # ---------------------------------------------------------- #
@@ -26,31 +26,12 @@ def createExampleItems():
 
     _ = input('Are you sure? This will delete existing items.')
 
+    places = pd.read_csv(settings.DATA_CSV_LOCATION)
+
     with open(settings.DATA_LOCATION, 'wb') as f:
-        pickle.dump({
-                       1: {
-                            'placeName': 'Absolutely Starving',
-                            'itemName': 'All items in store',
-                            'price': 1000,
-                            'thumbsUpCount': 1000,
-                            'thumbsDownCount': 0,
-                            'picture': 'none',
-                            'seating': 1,
-                            'address': 'Good address',
-                            'vegetarian': True
-                          },
-                       2: {
-                            'placeName': 'Zopa Breakfast',
-                            'itemName': 'All items in store',
-                            'price': 0,
-                            'thumbsUpCount': 1000,
-                            'thumbsDownCount': 0,
-                            'picture': 'none',
-                            'seating': 1,
-                            'address': 'Good address',
-                            'vegetarian': True
-                          }
-                    }, f)
+        pickle.dump({i + 1: dict(row) for i, row in places.fillna(0).iterrows()
+                                      if row['placeName'] and row['itemName']},
+                    f)
 
 def getAllItems():
     """
@@ -87,7 +68,7 @@ def addItem(**kwargs):
 
     keys = kwargs.keys()
 
-    # First, validate item
+    # First, validate items
     if 'placeName' in keys and \
        'itemName' in keys and \
        'price' in keys and \
