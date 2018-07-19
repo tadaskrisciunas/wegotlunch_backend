@@ -98,3 +98,13 @@ def addItem(**kwargs):
 
     else:
         return False
+
+def filter_by(field_to_filter):
+    all_items = getAllItems()
+    filtered_ids = []
+
+    for item_id in all_items:
+        if all_items[item_id][field_to_filter]:
+            filtered_ids.append(item_id)
+
+    return filtered_ids
